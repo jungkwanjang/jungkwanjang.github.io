@@ -120,7 +120,7 @@
   }
 
   function goKakaoNavi() {
-    const mapUrl = "kakaomap://route?ep=" + LAT + "," + LNG + "&by=CAR";
+    const mapUrl = "kakaomap://route?ep=" + LAT + "," + LNG + "&epn="+ encodeURIComponent(PLACE_NAME) + "&by=CAR";
 
     const tryMap = () => {
       tryOpenApp(mapUrl, () => {
