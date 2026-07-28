@@ -128,12 +128,9 @@
       });
     };
 
-    if (KAKAO_APP_KEY === "KAKAO_APP_KEY") {
+
       // 앱키 미설정 시 카카오내비 단계는 건너뛰고 바로 카카오맵부터 시도
-      tryMap();
-      return;
-    }
-    tryOpenApp(naviUrl, tryMap);
+    tryMap();
   }
 
   function goTmapNavi() {
