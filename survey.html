@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정관장 충북 영동점 - 구매 만족도 조사</title>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B305JVPZ16"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B305JVPZ16');
+</script>
+
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 16px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 24px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+  .logo-wrap {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+  .desc {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    background: #d71635;
+  }
+  .btn:active { opacity: 0.85; }
+  .loading-note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* 팝업 오버레이 */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .popup {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 340px;
+    width: 100%;
+    padding: 28px 24px 24px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    animation: pop 0.25s ease;
+  }
+  @keyframes pop {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .popup-badge {
+    display: inline-block;
+    background: #fff4e0;
+    color: #b45309;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .popup-point {
+    font-size: 32px;
+    font-weight: 800;
+    color: #d71635;
+    margin: 0 0 6px;
+  }
+  .popup-point span {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .popup-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .popup-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0 0 22px;
+  }
+  .popup-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    background: #d71635;
+    cursor: pointer;
+    font-family: inherit;
+    margin-bottom: 8px;
+  }
+  .popup-close {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo-wrap">
+    <img src="logo.svg" alt="정관장 로고">
+  </div>
+  <h1>구매 만족도 조사</h1>
+  <p class="desc">잠시 후 설문조사 페이지로<br>자동으로 이동합니다.</p>
+  <button class="btn" onclick="goToSurvey()">설문조사 바로가기</button>
+  <p class="loading-note">참여 기간: ~2026-09-01(화)까지</p>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="popup">
+    <div class="popup-badge">🎁 리워드 안내</div>
+    <p class="popup-point">1,000<span>포인트 지급</span></p>
+    <p class="popup-title">설문조사 완료 시<br>포인트가 적립돼요!</p>
+    <p class="popup-desc">
+      소중한 의견을 남겨주시면<br>
+      감사의 의미로 1,000포인트를 드립니다.<br>
+      확인을 누르면 설문조사로 이동해요.
+    </p>
+    <button class="popup-btn" onclick="closePopupAndGo()">확인하고 설문 시작하기</button>
+    <button class="popup-close" onclick="closePopup()">나중에 할게요</button>
+  </div>
+</div>
+
+<script>
+  // ─────────────────────────────────────────────
+  // 설문 링크 설정
+  // 매달 링크가 바뀔 때는 이 파일을 수정할 필요 없이,
+  // 알림톡 버튼 URL을 아래처럼 ?to= 뒤에 실제 설문 링크를 붙여서 보내면 됩니다.
+  // 예) https://jungkwanjang.github.io/survey.html?to=https://forms.gle/새설문링크
+  //
+  // 만약 ?to= 파라미터가 없으면 아래 DEFAULT_SURVEY_URL을 사용합니다.
+  // ─────────────────────────────────────────────
+  const DEFAULT_SURVEY_URL = "https://forms.gle/여기에실제설문링크입력";
+
+  function getSurveyUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const fromParam = params.get("to");
+    return fromParam ? decodeURIComponent(fromParam) : DEFAULT_SURVEY_URL;
+  }
+
+  const SURVEY_URL = getSurveyUrl();
+
+  function goToSurvey() {
+    window.location.href = SURVEY_URL;
+  }
+
+  function closePopupAndGo() {
+    document.getElementById("overlay").style.display = "none";
+    goToSurvey();
+  }
+
+  function closePopup() {
+    document.getElementById("overlay").style.display = "none";
+    closeKakaoInAppBrowser();
+  }
+
+  // 카카오톡 인앱브라우저에서 열린 경우, 전용 스킴으로 브라우저 닫기를 시도합니다.
+  // 카카오톡이 아닌 일반 브라우저(사파리/크롬 등)에서는 아무 동작도 하지 않습니다.
+  // 카카오톡 버전에 따라 동작하지 않을 수도 있어 100% 보장되진 않습니다.
+  function closeKakaoInAppBrowser() {
+    const ua = (navigator.userAgent || "").toLowerCase();
+    const isKakaoTalk = ua.indexOf("kakaotalk") > -1;
+    if (!isKakaoTalk) return;
+
+    const isIOS = /iphone|ipad|ipod/i.test(ua);
+    window.location.href = isIOS
+      ? "kakaoweb://closeBrowser"
+      : "kakaotalk://inappbrowser/close";
+  }
+</script>
+
+</body>
+</html>
