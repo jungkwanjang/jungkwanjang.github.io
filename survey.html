@@ -186,7 +186,7 @@
   <h1>구매 만족도 조사</h1>
   <p class="desc">잠시 후 설문조사 페이지로<br>자동으로 이동합니다.</p>
   <button class="btn" onclick="goToSurvey()">설문조사 바로가기</button>
-  <p class="loading-note">참여 기간: ~2026-09-01(화)까지</p>
+  <p class="loading-note" id="expireNote">참여 기간: ~2026-09-01(화)까지</p>
 </div>
 
 <div class="overlay" id="overlay">
@@ -205,6 +205,23 @@
 </div>
 
 <script>
+  // ─────────────────────────────────────────────
+  // 참여 기간(마감일) 설정
+  // 알림톡 발송 화면(AlimTalkSender)에서 넘기는 &expire= 파라미터 값을 그대로 표시합니다.
+  // 파라미터가 없으면 아래 DEFAULT_EXPIRE_TEXT를 대신 보여줍니다.
+  // 예) https://jungkwanjang.github.io/survey.html?to=...&expire=2026-09-01(화)
+  // ─────────────────────────────────────────────
+  const DEFAULT_EXPIRE_TEXT = "2026-09-01(화)";
+
+  function getExpireText() {
+    const params = new URLSearchParams(window.location.search);
+    const fromParam = params.get("expire");
+    return fromParam ? decodeURIComponent(fromParam) : DEFAULT_EXPIRE_TEXT;
+  }
+
+  document.getElementById("expireNote").textContent =
+    `참여 기간: ~${getExpireText()}까지`;
+
   // ─────────────────────────────────────────────
   // 설문 링크 설정
   // 매달 링크가 바뀔 때는 이 파일을 수정할 필요 없이,

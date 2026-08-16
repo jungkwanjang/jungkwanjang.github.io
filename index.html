@@ -1,251 +1,210 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>충북 영동점 - 지도 바로가기</title>
-    <style>
-      :root {
-        --bg: #f5f6f8;
-        --card: #ffffff;
-        --text: #1a1a1a;
-        --muted: #6b7280;
-        --border: #e5e7eb;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-          "Malgun Gothic", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        display: flex;
-        justify-content: center;
-        padding: 40px 16px;
-      }
-      .card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-        width: 100%;
-        max-width: 380px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-        text-align: center;
-      }
-      .logo-wrap {
-        width: 100%;
-        max-width: 260px;
-        margin: 0 auto 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .logo-wrap img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-      h1 {
-        font-size: 30px;
-        font-weight: 800;
-        margin: 0 0 8px;
-        letter-spacing: -0.5px;
-      }
-      .addr {
-        color: var(--muted);
-        font-size: 18px;
-        font-weight: 500;
-        margin: 0 0 22px;
-        line-height: 1.5;
-      }
-      .btn {
-        display: block;
-        width: 100%;
-        text-decoration: none;
-        padding: 14px;
-        border: none;
-        border-radius: 10px;
-        font-size: 15px;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: white;
-        cursor: pointer;
-        font-family: inherit;
-        box-sizing: border-box;
-      }
-      .btn:active {
-        opacity: 0.8;
-      }
-      .naver {
-        background: #03c75a;
-      }
-      .kakao {
-        background: #fee500;
-        color: #191919;
-      }
-      .tmap {
-        background: #2f8bfd;
-      }
-      .tel {
-        background: #1a1a1a;
-      }
-      .catalog {
-        background: linear-gradient(135deg, #e11d48, #be123c);
-        margin-top: 4px;
-        box-shadow: 0 2px 8px rgba(225, 29, 72, 0.25);
-      }
-      .kakaochat {
-        background: #3c1e1e;
-        color: #ffe812;
-      }
-      .divider {
-        height: 1px;
-        background: var(--border);
-        margin: 18px 0 14px;
-      }
-      .preview-wrap {
-        margin-top: 12px;
-      }
-      .preview-label {
-        font-size: 12px;
-        color: var(--muted);
-        margin-bottom: 8px;
-        text-align: left;
-      }
-      .preview-thumb {
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-      }
-      .preview-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-      }
-      .note {
-        margin-top: 18px;
-        font-size: 12px;
-        color: var(--muted);
-        line-height: 1.5;
-        text-align: left;
-      }
-      .note code {
-        background: #eef0f3;
-        padding: 1px 4px;
-        border-radius: 4px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <div class="logo-wrap">
-        <img src="logo.svg" alt="정관장 로고" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>충북 영동점 - 지도 바로가기</title>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="정관장 충북 영동점">
+<meta property="og:description" content="043-744-2304 · 길찾기, 추석 카탈로그, 카카오톡 상담까지 한 번에">
+<meta property="og:image" content="https://jungkwanjang.github.io/og_image.png">
+<meta property="og:url" content="https://jungkwanjang.github.io/">
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+  .logo-wrap {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+  }
+  .addr {
+    color: var(--muted);
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 22px;
+    line-height: 1.5;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+  .btn:active { opacity: 0.8; }
+  .naver { background: #03c75a; }
+  .kakao { background: #fee500; color: #191919; }
+  .tmap { background: #2f8bfd; }
+  .tel { background: #1a1a1a; }
+  .catalog {
+    background: linear-gradient(135deg, #e11d48, #be123c);
+    margin-top: 4px;
+    box-shadow: 0 2px 8px rgba(225,29,72,0.25);
+  }
+  .kakaochat { background: #3c1e1e; color: #ffe812; }
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 18px 0 14px;
+  }
+  .preview-wrap {
+    margin-top: 12px;
+  }
+  .preview-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  .preview-thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+  }
+  .preview-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .note {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    text-align: left;
+  }
+  .note code {
+    background: #eef0f3;
+    padding: 1px 4px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo-wrap">
+    <img src="logo.svg" alt="정관장 로고">
+  </div>
+  <h1>충북 영동점</h1>
+  <p class="addr">충북 영동군 영동읍 계산로 55-1</p>
+  <a class="btn tel" href="tel:043-744-2304">📞 043-744-2304</a>
+  <button class="btn naver" onclick="openNaverMapNavi()">네이버지도 내비게이션</button>
+  <button class="btn kakao" onclick="goKakaoNavi()">카카오 길찾기</button>
+  <button class="btn tmap" onclick="goTmapNavi()">티맵 내비게이션</button>
+
+  <div class="divider"></div>
+  <a class="btn kakaochat" href="https://pf.kakao.com/_xnTuxaxj/chat" target="_blank">💬 카카오톡으로 제품 조회하기</a>
+
+  <div class="divider"></div>
+  <a class="btn catalog" href="chuseok.html">🎁 추석 행사 카탈로그 보기</a>
+
+  <div class="preview-wrap">
+    <p class="preview-label">📄 카탈로그 미리보기</p>
+    <a href="chuseok.html">
+      <div class="preview-thumb">
+        <img src="catalog_thumb.png" alt="2026 추석 정관장 상품안내장 미리보기">
       </div>
-      <h1>충북 영동점</h1>
-      <p class="addr">충북 영동군 영동읍 계산로 55-1</p>
-      <a class="btn tel" href="tel:043-744-2304">📞 043-744-2304</a>
-      <button class="btn naver" onclick="openNaverMapNavi()">
-        네이버지도 내비게이션
-      </button>
-      <button class="btn kakao" onclick="goKakaoNavi()">카카오 길찾기</button>
-      <button class="btn tmap" onclick="goTmapNavi()">티맵 내비게이션</button>
-
-      <div class="divider"></div>
-      <a
-        class="btn kakaochat"
-        href="https://pf.kakao.com/_xnTuxaxj/chat"
-        target="_blank"
-        >💬 카카오톡으로 제품 조회하기</a
-      >
-
-      <div class="divider"></div>
-      <a class="btn catalog" href="chuseok.html">🎁 추석 행사 카탈로그 보기</a>
-
-      <div class="preview-wrap">
-        <p class="preview-label">📄 카탈로그 미리보기</p>
-        <a href="chuseok.html">
-          <div class="preview-thumb">
-            <img
-              src="catalog_thumb.png"
-              alt="2026 추석 정관장 상품안내장 미리보기"
-            />
-          </div>
-        </a>
-      </div>
-    </div>
-    <script>
-      const PLACE_NAME = "충북 영동점";
-      const LAT = 36.172688;
-      const LNG = 127.782826;
-      const NAVER_FALLBACK_URL = "https://naver.me/5kPmklSs";
-      const KAKAO_FALLBACK_URL = "https://kko.to/FpKUftVXrl";
-      const TMAP_FALLBACK_URL = "https://tmap.life/8e942808";
-      // 커스텀 스킴을 시도하고, 지정 시간 안에 앱으로 전환되지 않으면 onFail 실행
-      function tryOpenApp(appUrl, onFail, timeout = 1200) {
-        let opened = false;
-        const onVisibilityChange = () => {
-          if (document.hidden) opened = true;
-        };
-        document.addEventListener("visibilitychange", onVisibilityChange);
-        window.location.href = appUrl;
-        setTimeout(() => {
-          document.removeEventListener("visibilitychange", onVisibilityChange);
-          if (!opened) onFail();
-        }, timeout);
-      }
-      function openNaverMapNavi() {
-        const appUrl =
-          "nmap://route/car?dlat=" +
-          LAT +
-          "&dlng=" +
-          LNG +
-          "&dname=" +
-          encodeURIComponent(PLACE_NAME);
-        tryOpenApp(appUrl, () => {
-          window.open(NAVER_FALLBACK_URL, "_blank");
-        });
-      }
-      function goKakaoNavi() {
-        const mapUrl =
-          "kakaomap://route?ep=" +
-          LAT +
-          "," +
-          LNG +
-          "&en=" +
-          encodeURIComponent(PLACE_NAME) +
-          "&by=CAR";
-        const tryMap = () => {
-          tryOpenApp(mapUrl, () => {
-            window.open(KAKAO_FALLBACK_URL, "_blank");
-          });
-        };
-        // 앱키 미설정 시 카카오내비 단계는 건너뛰고 바로 카카오맵부터 시도
-        tryMap();
-      }
-      function goTmapNavi() {
-        const appUrl =
-          "tmap://route?goalx=" +
-          LNG +
-          "&goaly=" +
-          LAT +
-          "&goalname=" +
-          encodeURIComponent(PLACE_NAME);
-        tryOpenApp(appUrl, () => {
-          window.open(TMAP_FALLBACK_URL, "_blank");
-        });
-      }
-    </script>
-  </body>
+    </a>
+  </div>
+</div>
+<script>
+  const PLACE_NAME = "충북 영동점";
+  const LAT = 36.172688;
+  const LNG = 127.782826;
+  const NAVER_FALLBACK_URL = "https://naver.me/5kPmklSs";
+  const KAKAO_FALLBACK_URL = "https://kko.to/FpKUftVXrl";
+  const TMAP_FALLBACK_URL = "https://tmap.life/8e942808";
+  // 커스텀 스킴을 시도하고, 지정 시간 안에 앱으로 전환되지 않으면 onFail 실행
+  function tryOpenApp(appUrl, onFail, timeout = 1200) {
+    let opened = false;
+    const onVisibilityChange = () => { if (document.hidden) opened = true; };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    window.location.href = appUrl;
+    setTimeout(() => {
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      if (!opened) onFail();
+    }, timeout);
+  }
+  function openNaverMapNavi() {
+    const appUrl = "nmap://route/car?dlat=" + LAT + "&dlng=" + LNG +
+      "&dname=" + encodeURIComponent(PLACE_NAME);
+    tryOpenApp(appUrl, () => {
+      window.open(NAVER_FALLBACK_URL, "_blank");
+    });
+  }
+  function goKakaoNavi() {
+    const mapUrl = "kakaomap://route?ep=" + LAT + "," + LNG + "&en="+ encodeURIComponent(PLACE_NAME) + "&by=CAR";
+    const tryMap = () => {
+      tryOpenApp(mapUrl, () => {
+        window.open(KAKAO_FALLBACK_URL, "_blank");
+      });
+    };
+      // 앱키 미설정 시 카카오내비 단계는 건너뛰고 바로 카카오맵부터 시도
+    tryMap();
+  }
+  function goTmapNavi() {
+    const appUrl = "tmap://route?goalx=" + LNG + "&goaly=" + LAT +
+      "&goalname=" + encodeURIComponent(PLACE_NAME);
+    tryOpenApp(appUrl, () => {
+      window.open(TMAP_FALLBACK_URL, "_blank");
+    });
+  }</script>
+</body>
 </html>
