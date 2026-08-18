@@ -194,7 +194,12 @@
     return;
   }
 
-  pdfjsLib.getDocument(PDF_URL).promise.then(function (pdf) {
+  pdfjsLib.getDocument({
+    url: PDF_URL,
+    cMapUrl: "vendor/pdfjs/cmaps/",
+    cMapPacked: true,
+    standardFontDataUrl: "vendor/pdfjs/standard_fonts/"
+  }).promise.then(function (pdf) {
     totalPages = pdf.numPages;
     statusEl.remove();
 
