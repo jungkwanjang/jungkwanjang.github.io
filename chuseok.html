@@ -2,9 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
 <title>정관장 영동점 - 추석 행사 카탈로그</title>
-
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B305JVPZ16"></script>
 <script>
@@ -14,12 +13,16 @@
   gtag('config', 'G-B305JVPZ16');
 </script>
 
+<!-- PDF.js (레포 내 로컬 파일 사용) -->
+<script src="vendor/pdfjs/pdf.min.js"></script>
+
 <style>
   * { box-sizing: border-box; }
-  body {
+  html, body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    height: 100%;
     background: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   }
   .topbar {
     position: sticky;
@@ -45,11 +48,59 @@
     font-size: 14px;
     font-weight: 600;
   }
-  embed {
+
+  #viewer-container {
     width: 100%;
     height: calc(100vh - 45px);
-    border: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0 80px;
+  }
+
+  .pdf-page-wrap {
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    background: #fff;
+    max-width: 100%;
+  }
+
+  .pdf-page-wrap canvas {
     display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #status {
+    color: #ccc;
+    font-size: 14px;
+    text-align: center;
+    padding: 40px 16px;
+  }
+
+  #status.error {
+    color: #ff8080;
+  }
+
+  .page-indicator {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .page-indicator.visible {
+    opacity: 1;
   }
 </style>
 </head>
@@ -59,6 +110,116 @@
     <span class="title">추석 행사 카탈로그</span>
     <span style="width:40px;"></span>
   </div>
-  <embed src="26_chuseok.pdf" type="application/pdf">
+
+  <div id="viewer-container">
+    <div id="status">카탈로그를 불러오는 중입니다…</div>
+  </div>
+
+  <div class="page-indicator" id="pageIndicator">1 / 1</div>
+
+<script>
+(function () {
+  var PDF_URL = "26_chuseok.pdf";
+  var container = document.getElementById("viewer-container");
+  var statusEl = document.getElementById("status");
+  var indicator = document.getElementById("pageIndicator");
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = "vendor/pdfjs/pdf.worker.min.js";
+
+  var totalPages = 0;
+  var renderedPages = 0;
+
+  function showError(msg) {
+    statusEl.textContent = msg;
+    statusEl.classList.add("error");
+  }
+
+  function updateIndicator() {
+    if (totalPages <= 1) return;
+    indicator.textContent = renderedPages + " / " + totalPages;
+    indicator.classList.add("visible");
+    clearTimeout(updateIndicator._t);
+    updateIndicator._t = setTimeout(function () {
+      indicator.classList.remove("visible");
+    }, 1500);
+  }
+
+  container.addEventListener("scroll", function () {
+    // Determine which page is most visible
+    var wraps = container.querySelectorAll(".pdf-page-wrap");
+    var containerRect = container.getBoundingClientRect();
+    var mid = containerRect.top + containerRect.height / 2;
+    for (var i = 0; i < wraps.length; i++) {
+      var r = wraps[i].getBoundingClientRect();
+      if (r.top <= mid && r.bottom >= mid) {
+        renderedPages = i + 1;
+        updateIndicator();
+        break;
+      }
+    }
+  });
+
+  function renderPage(pdf, pageNum, targetWidth) {
+    return pdf.getPage(pageNum).then(function (page) {
+      var viewport = page.getViewport({ scale: 1 });
+      var scale = targetWidth / viewport.width;
+      // Cap scale for very high-DPI screens to avoid huge canvases
+      var pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      var renderViewport = page.getViewport({ scale: scale * pixelRatio });
+
+      var wrap = document.createElement("div");
+      wrap.className = "pdf-page-wrap";
+      wrap.style.width = targetWidth + "px";
+
+      var canvas = document.createElement("canvas");
+      canvas.width = renderViewport.width;
+      canvas.height = renderViewport.height;
+      canvas.style.width = "100%";
+      wrap.appendChild(canvas);
+      container.appendChild(wrap);
+
+      var ctx = canvas.getContext("2d");
+      return page.render({ canvasContext: ctx, viewport: renderViewport }).promise.then(function () {
+        renderedPages++;
+        if (renderedPages === 1) {
+          indicator.classList.add("visible");
+          updateIndicator();
+        }
+      });
+    });
+  }
+
+  if (typeof pdfjsLib === "undefined") {
+    showError("PDF 뷰어를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.");
+    return;
+  }
+
+  pdfjsLib.getDocument(PDF_URL).promise.then(function (pdf) {
+    totalPages = pdf.numPages;
+    statusEl.remove();
+
+    var targetWidth = Math.min(container.clientWidth || window.innerWidth, 900);
+    var chain = Promise.resolve();
+
+    var _loop = function (i) {
+      chain = chain.then(function () {
+        return renderPage(pdf, i, targetWidth);
+      });
+    };
+
+    for (var i = 1; i <= totalPages; i++) {
+      _loop(i);
+    }
+
+    chain.catch(function (err) {
+      console.error(err);
+      showError("카탈로그 페이지를 표시하는 중 오류가 발생했습니다.");
+    });
+  }).catch(function (err) {
+    console.error(err);
+    showError("카탈로그 파일을 불러올 수 없습니다. 잠시 후 다시 시도해주세요.");
+  });
+})();
+</script>
 </body>
 </html>
