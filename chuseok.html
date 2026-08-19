@@ -1,444 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>정관장 영동점 - 추석 행사 카탈로그</title>
-    <!-- Google Analytics (GA4) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-B305JVPZ16"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정관장 영동점 - 추석 행사 카탈로그</title>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B305JVPZ16"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B305JVPZ16');
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  .topbar {
+    position: sticky;
+    top: 0;
+    background: #1a1a1a;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    z-index: 10;
+    gap: 10px;
+  }
+  .topbar a.back {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .topbar .title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .topbar .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #c0392b;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 10px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .topbar .download-btn:active { opacity: 0.8; }
+
+  .pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0 32px;
+  }
+
+  .pages img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    background: #fff;
+  }
+
+  .page-indicator {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .page-indicator.visible { opacity: 1; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="back" href="index.html">← 뒤로</a>
+    <span class="title">추석 행사 카탈로그</span>
+    <a class="download-btn" href="26_chuseok.pdf" download="2026_정관장_영동점_추석카탈로그.pdf">⬇ PDF</a>
+  </div>
+
+  <div class="pages" id="pages">
+    <!-- 25페이지: 손가락으로 핀치하면 브라우저 기본 확대 기능이 그대로 동작합니다 -->
+    <img src="catalog/page-01.jpg" alt="카탈로그 1페이지" loading="eager">
+    <img src="catalog/page-02.jpg" alt="카탈로그 2페이지" loading="lazy">
+    <img src="catalog/page-03.jpg" alt="카탈로그 3페이지" loading="lazy">
+    <img src="catalog/page-04.jpg" alt="카탈로그 4페이지" loading="lazy">
+    <img src="catalog/page-05.jpg" alt="카탈로그 5페이지" loading="lazy">
+    <img src="catalog/page-06.jpg" alt="카탈로그 6페이지" loading="lazy">
+    <img src="catalog/page-07.jpg" alt="카탈로그 7페이지" loading="lazy">
+    <img src="catalog/page-08.jpg" alt="카탈로그 8페이지" loading="lazy">
+    <img src="catalog/page-09.jpg" alt="카탈로그 9페이지" loading="lazy">
+    <img src="catalog/page-10.jpg" alt="카탈로그 10페이지" loading="lazy">
+    <img src="catalog/page-11.jpg" alt="카탈로그 11페이지" loading="lazy">
+    <img src="catalog/page-12.jpg" alt="카탈로그 12페이지" loading="lazy">
+    <img src="catalog/page-13.jpg" alt="카탈로그 13페이지" loading="lazy">
+    <img src="catalog/page-14.jpg" alt="카탈로그 14페이지" loading="lazy">
+    <img src="catalog/page-15.jpg" alt="카탈로그 15페이지" loading="lazy">
+    <img src="catalog/page-16.jpg" alt="카탈로그 16페이지" loading="lazy">
+    <img src="catalog/page-17.jpg" alt="카탈로그 17페이지" loading="lazy">
+    <img src="catalog/page-18.jpg" alt="카탈로그 18페이지" loading="lazy">
+    <img src="catalog/page-19.jpg" alt="카탈로그 19페이지" loading="lazy">
+    <img src="catalog/page-20.jpg" alt="카탈로그 20페이지" loading="lazy">
+    <img src="catalog/page-21.jpg" alt="카탈로그 21페이지" loading="lazy">
+    <img src="catalog/page-22.jpg" alt="카탈로그 22페이지" loading="lazy">
+    <img src="catalog/page-23.jpg" alt="카탈로그 23페이지" loading="lazy">
+    <img src="catalog/page-24.jpg" alt="카탈로그 24페이지" loading="lazy">
+    <img src="catalog/page-25.jpg" alt="카탈로그 25페이지" loading="lazy">
+  </div>
+
+  <div class="page-indicator" id="pageIndicator">1 / 25</div>
+
+<script>
+  // 스크롤하는 동안 몇 페이지째인지 살짝 표시만 해주는 아주 가벼운 스크립트 (없어도 무방)
+  (function () {
+    var imgs = document.querySelectorAll(".pages img");
+    var indicator = document.getElementById("pageIndicator");
+    var total = imgs.length;
+    var hideTimer = null;
+
+    window.addEventListener("scroll", function () {
+      var mid = window.innerHeight / 2;
+      var current = 1;
+      for (var i = 0; i < imgs.length; i++) {
+        var r = imgs[i].getBoundingClientRect();
+        if (r.top <= mid && r.bottom >= mid) { current = i + 1; break; }
       }
-      gtag("js", new Date());
-      gtag("config", "G-B305JVPZ16");
-    </script>
-
-    <!-- PDF.js (레포 내 로컬 파일 사용) -->
-    <script src="vendor/pdfjs/pdf.min.js"></script>
-
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        height: 100%;
-        background: #1a1a1a;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-          "Malgun Gothic", sans-serif;
-        overscroll-behavior: none;
-      }
-      .topbar {
-        position: sticky;
-        top: 0;
-        background: #1a1a1a;
-        padding: 10px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid #333;
-        z-index: 20;
-      }
-      .topbar a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .topbar .title {
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      #viewer-container {
-        width: 100%;
-        height: calc(100vh - 45px - 56px); /* topbar + download bar */
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        touch-action: pan-x pan-y;
-      }
-
-      #zoomLayer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 12px 0 24px;
-        min-width: 100%;
-        width: max-content;
-      }
-
-      .pdf-page-wrap {
-        margin-bottom: 12px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        background: #fff;
-      }
-
-      .pdf-page-wrap canvas {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      #status {
-        color: #ccc;
-        font-size: 14px;
-        text-align: center;
-        padding: 40px 16px;
-      }
-      #status.error {
-        color: #ff8080;
-      }
-
-      .page-indicator {
-        position: fixed;
-        bottom: 68px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        font-size: 13px;
-        padding: 6px 14px;
-        border-radius: 20px;
-        z-index: 15;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-      }
-      .page-indicator.visible {
-        opacity: 1;
-      }
-
-      /* 확대/축소 툴바 */
-      .zoom-toolbar {
-        position: fixed;
-        right: 14px;
-        bottom: 72px;
-        z-index: 15;
-        background: rgba(26, 26, 26, 0.9);
-        border: 1px solid #444;
-        border-radius: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-      }
-      .zoom-toolbar button {
-        width: 44px;
-        height: 44px;
-        background: transparent;
-        border: none;
-        color: #fff;
-        font-size: 20px;
-        line-height: 1;
-        cursor: pointer;
-      }
-      .zoom-toolbar button:active {
-        background: rgba(255, 255, 255, 0.15);
-      }
-      .zoom-toolbar .zoom-pct {
-        font-size: 11px;
-        color: #ccc;
-        text-align: center;
-        padding: 2px 0 6px;
-        user-select: none;
-      }
-      .zoom-toolbar .divider {
-        height: 1px;
-        background: #444;
-      }
-
-      .downloadbar {
-        height: 56px;
-        background: #1a1a1a;
-        border-top: 1px solid #333;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 16px;
-      }
-
-      .download-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: #c0392b;
-        color: #fff;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 10px 20px;
-        border-radius: 8px;
-        width: 100%;
-        max-width: 420px;
-        justify-content: center;
-      }
-      .download-btn:active {
-        opacity: 0.8;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="topbar">
-      <a href="index.html">← 뒤로</a>
-      <span class="title">추석 행사 카탈로그</span>
-      <span style="width: 40px"></span>
-    </div>
-
-    <div id="viewer-container">
-      <div id="zoomLayer">
-        <div id="status">카탈로그를 불러오는 중입니다…</div>
-      </div>
-    </div>
-
-    <div class="zoom-toolbar" id="zoomToolbar" style="display: none">
-      <button id="zoomInBtn" aria-label="확대">＋</button>
-      <div class="divider"></div>
-      <button id="zoomResetBtn" aria-label="100%로">⟳</button>
-      <div class="zoom-pct" id="zoomPct">100%</div>
-      <div class="divider"></div>
-      <button id="zoomOutBtn" aria-label="축소">－</button>
-    </div>
-
-    <div class="downloadbar">
-      <a
-        class="download-btn"
-        href="26_chuseok.pdf"
-        download="2026_정관장_영동점_추석카탈로그.pdf"
-      >
-        ⬇ PDF 다운로드
-      </a>
-    </div>
-
-    <div class="page-indicator" id="pageIndicator">1 / 1</div>
-
-    <script>
-      (function () {
-        var PDF_URL = "26_chuseok.pdf";
-        var container = document.getElementById("viewer-container");
-        var zoomLayer = document.getElementById("zoomLayer");
-        var statusEl = document.getElementById("status");
-        var indicator = document.getElementById("pageIndicator");
-        var zoomToolbar = document.getElementById("zoomToolbar");
-        var zoomPct = document.getElementById("zoomPct");
-
-        pdfjsLib.GlobalWorkerOptions.workerSrc =
-          "vendor/pdfjs/pdf.worker.min.js";
-
-        var pdfDoc = null;
-        var totalPages = 0;
-        var baseWidth = 0; // 100% 기준 페이지 폭(px)
-        var zoomLevel = 1; // 0.5 ~ 3.0
-        var MIN_ZOOM = 0.5,
-          MAX_ZOOM = 3.0,
-          STEP = 0.25;
-        var renderToken = 0; // 중복 렌더링 취소용
-
-        function showError(msg) {
-          zoomLayer.innerHTML = "";
-          statusEl = document.createElement("div");
-          statusEl.id = "status";
-          statusEl.className = "error";
-          statusEl.textContent = msg;
-          zoomLayer.appendChild(statusEl);
-        }
-
-        function updateIndicator() {
-          if (totalPages <= 1) return;
-          var wraps = zoomLayer.querySelectorAll(".pdf-page-wrap");
-          var containerRect = container.getBoundingClientRect();
-          var mid = containerRect.top + containerRect.height / 2;
-          var current = 1;
-          for (var i = 0; i < wraps.length; i++) {
-            var r = wraps[i].getBoundingClientRect();
-            if (r.top <= mid && r.bottom >= mid) {
-              current = i + 1;
-              break;
-            }
-          }
-          indicator.textContent = current + " / " + totalPages;
-          indicator.classList.add("visible");
-          clearTimeout(updateIndicator._t);
-          updateIndicator._t = setTimeout(function () {
-            indicator.classList.remove("visible");
-          }, 1200);
-        }
-
-        container.addEventListener("scroll", updateIndicator);
-
-        function renderPage(pdf, pageNum, targetWidth, token) {
-          return pdf.getPage(pageNum).then(function (page) {
-            if (token !== renderToken) return null;
-            var viewport = page.getViewport({ scale: 1 });
-            var scale = targetWidth / viewport.width;
-            var pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-            var renderViewport = page.getViewport({
-              scale: scale * pixelRatio,
-            });
-
-            var wrap = document.createElement("div");
-            wrap.className = "pdf-page-wrap";
-            wrap.style.width = targetWidth + "px";
-
-            var canvas = document.createElement("canvas");
-            canvas.width = renderViewport.width;
-            canvas.height = renderViewport.height;
-            wrap.appendChild(canvas);
-
-            var ctx = canvas.getContext("2d");
-            return page
-              .render({ canvasContext: ctx, viewport: renderViewport })
-              .promise.then(function () {
-                if (token !== renderToken) return null;
-                return wrap;
-              });
-          });
-        }
-
-        function renderAll(targetWidth) {
-          var token = ++renderToken;
-          var frag = document.createDocumentFragment();
-          var chain = Promise.resolve();
-          var wraps = [];
-
-          for (var i = 1; i <= totalPages; i++) {
-            (function (pageNum) {
-              chain = chain.then(function () {
-                return renderPage(pdfDoc, pageNum, targetWidth, token).then(
-                  function (wrap) {
-                    if (wrap) wraps.push(wrap);
-                  },
-                );
-              });
-            })(i);
-          }
-
-          return chain.then(function () {
-            if (token !== renderToken) return;
-            wraps.forEach(function (w) {
-              frag.appendChild(w);
-            });
-            zoomLayer.innerHTML = "";
-            zoomLayer.appendChild(frag);
-          });
-        }
-
-        function setZoom(newZoom, opts) {
-          opts = opts || {};
-          newZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newZoom));
-          if (!opts.force && Math.abs(newZoom - zoomLevel) < 0.001) return;
-          zoomLevel = newZoom;
-          zoomPct.textContent = Math.round(zoomLevel * 100) + "%";
-          var targetWidth = Math.round(baseWidth * zoomLevel);
-          renderAll(targetWidth);
-        }
-
-        document
-          .getElementById("zoomInBtn")
-          .addEventListener("click", function () {
-            setZoom(zoomLevel + STEP);
-          });
-        document
-          .getElementById("zoomOutBtn")
-          .addEventListener("click", function () {
-            setZoom(zoomLevel - STEP);
-          });
-        document
-          .getElementById("zoomResetBtn")
-          .addEventListener("click", function () {
-            setZoom(1);
-          });
-
-        // --- 핀치 줌(터치) ---
-        var pinchStartDist = null;
-        var pinchStartZoom = 1;
-
-        function touchDist(touches) {
-          var dx = touches[0].clientX - touches[1].clientX;
-          var dy = touches[0].clientY - touches[1].clientY;
-          return Math.sqrt(dx * dx + dy * dy);
-        }
-
-        container.addEventListener(
-          "touchstart",
-          function (e) {
-            if (e.touches.length === 2) {
-              pinchStartDist = touchDist(e.touches);
-              pinchStartZoom = zoomLevel;
-            }
-          },
-          { passive: true },
-        );
-
-        container.addEventListener(
-          "touchmove",
-          function (e) {
-            if (e.touches.length === 2 && pinchStartDist) {
-              e.preventDefault();
-              var dist = touchDist(e.touches);
-              var ratio = dist / pinchStartDist;
-              var live = Math.max(
-                MIN_ZOOM,
-                Math.min(MAX_ZOOM, pinchStartZoom * ratio),
-              );
-              zoomPct.textContent = Math.round(live * 100) + "%";
-            }
-          },
-          { passive: false },
-        );
-
-        container.addEventListener("touchend", function (e) {
-          if (pinchStartDist && e.touches.length < 2) {
-            var finalPct = parseInt(zoomPct.textContent, 10) / 100;
-            pinchStartDist = null;
-            if (!isNaN(finalPct)) setZoom(finalPct, { force: true });
-          }
-        });
-
-        // --- 로드 ---
-        if (typeof pdfjsLib === "undefined") {
-          showError(
-            "PDF 뷰어를 불러오지 못했습니다. 아래 다운로드 버튼을 이용해주세요.",
-          );
-        } else {
-          pdfjsLib
-            .getDocument({
-              url: PDF_URL,
-              cMapUrl: "vendor/pdfjs/cmaps/",
-              cMapPacked: true,
-              standardFontDataUrl: "vendor/pdfjs/standard_fonts/",
-            })
-            .promise.then(function (pdf) {
-              pdfDoc = pdf;
-              totalPages = pdf.numPages;
-              baseWidth = Math.min(
-                container.clientWidth || window.innerWidth,
-                900,
-              );
-              zoomToolbar.style.display = "flex";
-              return renderAll(baseWidth);
-            })
-            .catch(function (err) {
-              console.error(err);
-              showError(
-                "카탈로그 파일을 불러올 수 없습니다. 아래 다운로드 버튼을 이용해주세요.",
-              );
-            });
-        }
-      })();
-    </script>
-  </body>
+      indicator.textContent = current + " / " + total;
+      indicator.classList.add("visible");
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        indicator.classList.remove("visible");
+      }, 1200);
+    }, { passive: true });
+  })();
+</script>
+</body>
 </html>
